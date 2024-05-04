@@ -1,13 +1,11 @@
-// Import necessary modules from redux toolkit
 import { createSlice } from '@reduxjs/toolkit';
 
-// Initial state for the user slice
 const initialState = {
   isAuthenticated: false,
   tasks: [],
 };
 
-// Create a user slice using createSlice from redux toolkit
+
 const userSlice = createSlice({
   name: 'user',
   initialState,
@@ -27,6 +25,6 @@ const userSlice = createSlice({
   },
 });
 
-// Export actions and reducer from the user slice
+
 export const { login, logout, addTask, deleteTask } = userSlice.actions;
 export default userSlice.reducer;

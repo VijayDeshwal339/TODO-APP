@@ -1,20 +1,19 @@
-import axios from 'axios';
+const API_KEY = '48426bac92534fadab5115831240405';
+const API_BASE_URL = 'http://api.weatherapi.com/v1';
 
-const API_KEY = 'YOUR_API_KEY'; // Replace with your actual API key
-const API_BASE_URL = 'https://api.example.com'; // Replace with your API base URL
-
-const api = axios.create({
-  baseURL: API_BASE_URL,
-});
-
-export const fetchWeatherData = async (city) => {
+const fetchWeatherData = async (location) => {
   try {
-    const response = await api.get(`/weather?city=${city}&apiKey=${API_KEY}`);
-    return response.data;
+    const response = await fetch(`${API_BASE_URL}/current.json?key=${API_KEY}&q=${location}`);
+    if (!response.ok) {
+      const errorMessage = `${response.status} ${response.statusText}`;
+      throw new Error(`Failed to fetch weather data: ${errorMessage}`);
+    }
+    const data = await response.json();
+    return data;
   } catch (error) {
-    console.error('Error fetching weather data:', error);
+    console.error('Error fetching weather data:', error.message);
     throw error;
   }
 };
 
-export default api;
+export default fetchWeatherData;

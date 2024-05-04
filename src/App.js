@@ -21,7 +21,7 @@ const App = () => {
           path="/dashboard"
           element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />}
         />
-        {/* Optional: Redirect other routes to /login */}
+       
         <Route path="*" element={<Navigate to="/login" />} />
         
       </Routes>

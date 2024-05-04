@@ -1,20 +1,3 @@
-// // TaskList.js (Updated)
-// import React from 'react';
-
-// const TaskList = ({ tasks, onDeleteTask }) => {
-//   return (
-//     <ul>
-//       {tasks.map((task) => (
-//         <li key={task.id} className={`priority-${task.priority.toLowerCase()}`}>
-//           {task.text} <button onClick={() => onDeleteTask(task.id)}>Delete</button>
-//         </li>
-//       ))}
-//     </ul>
-//   );
-// };
-
-// export default TaskList;
-
 import React from 'react';
 import { TableContainer, Table, TableHead, TableBody, TableRow, TableCell, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
